@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/wyattjoh/media-server-mcp/compare/@wyattjoh/media-server-mcp-v2.1.1...@wyattjoh/media-server-mcp-v2.2.0) (2026-05-18)
+
+
+### Features
+
+* add media management tools for wanted/missing, history, releases, and queue ([da8e466](https://github.com/wyattjoh/media-server-mcp/commit/da8e466479c4d3e242b39fa1514c91602d96e976))
+* **mcp:** add new media management tools to download-management category ([6089d1d](https://github.com/wyattjoh/media-server-mcp/commit/6089d1df99ad815efd28a3618a2ad4f0146f7f22))
+* **mcp:** add radarr release search/grab, queue management, search-all-missing, and mark-failed tools ([ce938fd](https://github.com/wyattjoh/media-server-mcp/commit/ce938fd041b5200af1df186ed589faa1100a3be6))
+* **mcp:** add radarr wanted/missing, cutoff, history, and calendar tools ([47029df](https://github.com/wyattjoh/media-server-mcp/commit/47029df268a583a9432c10afea54ed5593aa90f4))
+* **mcp:** add sonarr release search/grab, queue management, search-all-missing, and mark-failed tools ([a30f1b1](https://github.com/wyattjoh/media-server-mcp/commit/a30f1b1d790bcd459f1ff4ae957b2c20b6331bfe))
+* **mcp:** add sonarr wanted/missing, cutoff, history, and series history tools ([8ae32e2](https://github.com/wyattjoh/media-server-mcp/commit/8ae32e2066504911b645533a2278aadbfdf55ea2))
+
 ## [2.1.1](https://github.com/wyattjoh/media-server-mcp/compare/@wyattjoh/media-server-mcp-v2.1.0...@wyattjoh/media-server-mcp-v2.1.1) (2026-03-23)
 
 
