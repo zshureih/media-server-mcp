@@ -1,0 +1,15 @@
+.git
+.github
+.claude
+.vscode
+.idea
+node_modules
+*.md
+!packages/**/README.md
+.env
+.env.*
+!.env.example
+tests/
+docs/
+Dockerfile
+.dockerignore
