@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/wyattjoh/media-server-mcp/compare/@wyattjoh/sonarr-v1.1.0...@wyattjoh/sonarr-v1.2.0) (2026-05-18)
+
+
+### Features
+
+* add media management tools for wanted/missing, history, releases, and queue ([da8e466](https://github.com/wyattjoh/media-server-mcp/commit/da8e466479c4d3e242b39fa1514c91602d96e976))
+* **sonarr:** add history and mark-failed client functions ([11ef912](https://github.com/wyattjoh/media-server-mcp/commit/11ef912ebac5d5ffe52c6cc133b5042672322c7b))
+* **sonarr:** add release search/grab, queue management, and search-all-missing client functions ([f90a09a](https://github.com/wyattjoh/media-server-mcp/commit/f90a09ab0df7a8eec7164c42f33c3645caba0f18))
+* **sonarr:** add wanted/missing and cutoff unmet client functions ([e8847d9](https://github.com/wyattjoh/media-server-mcp/commit/e8847d945a5c5cba020719ade7c539c18a7c609d))
+
 ## [1.1.0](https://github.com/wyattjoh/media-server-mcp/compare/@wyattjoh/sonarr-v1.0.0...@wyattjoh/sonarr-v1.1.0) (2026-03-23)
 
 

@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/wyattjoh/media-server-mcp/compare/@wyattjoh/radarr-v1.1.0...@wyattjoh/radarr-v1.2.0) (2026-05-18)
+
+
+### Features
+
+* add media management tools for wanted/missing, history, releases, and queue ([da8e466](https://github.com/wyattjoh/media-server-mcp/commit/da8e466479c4d3e242b39fa1514c91602d96e976))
+* **radarr:** add history and mark-failed client functions ([a2872d8](https://github.com/wyattjoh/media-server-mcp/commit/a2872d8d86b89dfe3be87f2a1a41d4acedfe835b))
+* **radarr:** add release search/grab, calendar, queue management, and search-all-missing client functions ([405ac9c](https://github.com/wyattjoh/media-server-mcp/commit/405ac9c1a5d81d97a030f0cf7bca373b54c69326))
+* **radarr:** add wanted/missing and cutoff unmet client functions ([b02f2fd](https://github.com/wyattjoh/media-server-mcp/commit/b02f2fd7d7af4e08a034bc2cc02124f0308b2557))
+
 ## [1.1.0](https://github.com/wyattjoh/media-server-mcp/compare/@wyattjoh/radarr-v1.0.0...@wyattjoh/radarr-v1.1.0) (2026-03-23)
 
 
