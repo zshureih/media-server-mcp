@@ -43,6 +43,15 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository_owner }}/media-server-mcp
+          # Force git-derived context instead of the default `workflow`
+          # context. On this fork, `workflow` context intermittently 503s
+          # while resolving ref/context via GitHub's API — reproduced twice
+          # in a row (2026-07-16) as a raw "Unicorn" 503 HTML page from this
+          # step specifically, while every other API surface for this repo
+          # responded normally at the same time. `git` context resolves
+          # ref/sha from the local checkout instead, sidestepping that API
+          # call entirely regardless of its root cause.
+          context: git
           # The release-please tag for the MCP package is
           # `@wyattjoh/media-server-mcp@vX.Y.Z`. Strip the package prefix so
           # the resulting Docker tag is the bare semver (vX.Y.Z, X.Y, etc.).
