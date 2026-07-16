@@ -7,7 +7,6 @@ import type {
   SonarrHistoryRecord,
   SonarrPaginatedApiResponse,
   SonarrQualityProfile,
-  SonarrQueueItem,
   SonarrQueueResponse,
   SonarrRelease,
   SonarrRootFolder,
@@ -399,7 +398,7 @@ export async function getQueue(
   config: SonarrConfig,
   limit?: number,
   skip?: number,
-): Promise<SonarrQueueItem[]> {
+): Promise<SonarrQueueResponse> {
   const params = new URLSearchParams();
   if (limit !== undefined) params.append("pageSize", limit.toString());
   if (skip !== undefined) {
@@ -409,8 +408,7 @@ export async function getQueue(
   const queryString = params.toString();
   const endpoint = `/queue${queryString ? `?${queryString}` : ""}`;
 
-  const response = await makeRequest<SonarrQueueResponse>(config, endpoint);
-  return response.records;
+  return await makeRequest<SonarrQueueResponse>(config, endpoint);
 }
 
 // Get quality profiles

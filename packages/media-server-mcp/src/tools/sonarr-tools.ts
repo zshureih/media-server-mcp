@@ -570,12 +570,19 @@ export function createSonarrTools(
           args.limit,
           args.skip,
         );
+        const structured = {
+          data: results.records as unknown as Record<string, unknown>[],
+          total: results.totalRecords,
+          returned: results.records.length,
+          skip: args.skip ?? 0,
+          limit: args.limit,
+        };
         return {
           content: [{
             type: "text",
-            text: JSON.stringify(results, null, 2),
+            text: JSON.stringify(structured, null, 2),
           }],
-          structuredContent: results as unknown as Record<string, unknown>,
+          structuredContent: structured,
         };
       }),
     );
