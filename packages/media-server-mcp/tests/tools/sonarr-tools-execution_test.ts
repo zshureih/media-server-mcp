@@ -234,3 +234,71 @@ Deno.test(
     }
   },
 );
+
+Deno.test(
+  "sonarr_get_queue - happy path returns structuredContent matching declared outputSchema",
+  async () => {
+    const mockQueueResponse = {
+      page: 1,
+      pageSize: 20,
+      sortKey: "timeleft",
+      sortDirection: "ascending",
+      totalRecords: 1,
+      records: [
+        {
+          id: 42,
+          seriesId: 9,
+          seasonNumber: 3,
+          title: "Abbott Elementary S03E02",
+          status: "downloading",
+        },
+      ],
+    };
+
+    const fetchStub = stub(
+      globalThis,
+      "fetch",
+      () =>
+        Promise.resolve(
+          new Response(JSON.stringify(mockQueueResponse), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+          }),
+        ),
+    );
+
+    try {
+      const server = new McpServer({ name: "test", version: "1.0.0" });
+      const config = createSonarrConfig(
+        "http://localhost:8989",
+        "test-api-key",
+      );
+      createSonarrTools(server, config, () => true);
+
+      const { client, cleanup } = await createConnectedClient(server);
+
+      try {
+        const result = await client.callTool({
+          name: "sonarr_get_queue",
+          arguments: {},
+        });
+
+        // A schema mismatch between the tool's outputSchema and the actual
+        // client return shape surfaces as result.isError, not a thrown
+        // exception, so this assertion is the one that catches it.
+        assertEquals(result.isError, undefined);
+        assertExists(result.structuredContent);
+
+        const structured = result.structuredContent as Record<string, unknown>;
+        assertEquals(structured.total, 1);
+        assertEquals(structured.returned, 1);
+        assertEquals(structured.skip, 0);
+        assertEquals(Array.isArray(structured.data), true);
+      } finally {
+        await cleanup();
+      }
+    } finally {
+      fetchStub.restore();
+    }
+  },
+);
